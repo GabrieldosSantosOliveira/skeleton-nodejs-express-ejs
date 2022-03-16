@@ -10,7 +10,7 @@ router.get('/', async function(req, res, next) {
 });
 
 module.exports = router;
-router.get('/inserir', async function(req, res, next) {
+router.post('/inserir', async function(req, res, next) {
   const autor = {
     nome:"Claudio",
     sobrenome:"Jonas",
