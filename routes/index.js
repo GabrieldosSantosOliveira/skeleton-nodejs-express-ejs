@@ -24,15 +24,15 @@ router.post('/inserir', async function(req, res, next) {
 });
 
 module.exports = router;
-router.get('/atualizar', async function(req, res, next) {
-  const autor = {
-    nome:"Claudio",
-    sobrenome:"Jonas",
-    data_nascimento:"2022-03-03",
-    id:5
-  }
-  const autores = await Autor.atualizar(autor);
-  res.json(autores)
+router.put('/atualizar', async function(req, res, next) {
+  // const autor = {
+  //   nome:"Claudio",
+  //   sobrenome:"Jonas",
+  //   data_nascimento:"2022-03-03",
+  //   id:5
+  // }
+  const autores = await Autor.atualizar(req.body);
+  res.json(autores.rows)
 });
 
 module.exports = router;
