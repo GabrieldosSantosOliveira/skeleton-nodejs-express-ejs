@@ -11,13 +11,16 @@ router.get('/', async function(req, res, next) {
 
 module.exports = router;
 router.post('/inserir', async function(req, res, next) {
-  const autor = {
-    nome:"Claudio",
-    sobrenome:"Jonas",
-    data_nascimento:"2022-03-03" 
-  }
-  const autores = await Autor.inserir(autor);
-  res.json(autores)
+  // const autor = {
+  //   nome:"Claudio",
+  //   sobrenome:"Jonas",
+  //   data_nascimento:"2022-03-03" 
+  // }
+   const autores = await Autor.inserir(req.body);
+   res.json(autores.rows);
+
+
+
 });
 
 module.exports = router;
