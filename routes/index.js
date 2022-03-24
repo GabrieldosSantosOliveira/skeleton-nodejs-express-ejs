@@ -36,9 +36,11 @@ router.put('/atualizar', async function(req, res, next) {
 });
 
 module.exports = router;
-router.get('/deletar', async function(req, res, next) {
-  const autores = await Autor.deletar(4);
+
+router.delete('/deletar', async function(req, res, next) {
+  const autores = await Autor.deletar(req.body);
   res.json(autores)
+  console.log(autores)
 });
 
 module.exports = router;
