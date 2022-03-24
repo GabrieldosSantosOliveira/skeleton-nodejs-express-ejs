@@ -39,8 +39,7 @@ module.exports = router;
 
 router.delete('/deletar', async function(req, res, next) {
   const autores = await Autor.deletar(req.body);
-  res.json(autores)
-  console.log(autores)
+  res.json(autores.rows)
 });
 
 module.exports = router;
