@@ -11,11 +11,7 @@ router.get('/', async function(req, res, next) {
 
 module.exports = router;
 router.post('/inserir', async function(req, res, next) {
-  // const autor = {
-  //   nome:"Claudio",
-  //   sobrenome:"Jonas",
-  //   data_nascimento:"2022-03-03" 
-  // }
+
    const autores = await Autor.inserir(req.body);
    res.json(autores.rows);
 
@@ -25,12 +21,7 @@ router.post('/inserir', async function(req, res, next) {
 
 module.exports = router;
 router.put('/atualizar', async function(req, res, next) {
-  // const autor = {
-  //   nome:"Claudio",
-  //   sobrenome:"Jonas",
-  //   data_nascimento:"2022-03-03",
-  //   id:5
-  // }
+
   const autores = await Autor.atualizar(req.body);
   res.json(autores.rows)
 });
@@ -44,3 +35,42 @@ router.delete('/deletar', async function(req, res, next) {
 
 module.exports = router;
 
+
+const Livro = require("../models/livro")
+
+/* GET home page. */
+router.get('/livros', async function(req, res, next) {
+  const livros = await Livro.selecionar();
+  res.json(livros.rows)
+});
+
+module.exports = router;
+
+router.post('/inserir/livros', async function(req, res, next) {
+
+   const livros = await Livro.inserir(req.body);
+   res.json(livros.rows);
+});
+
+module.exports = router;
+router.put('/atualizar/livros', async function(req, res, next) {
+
+  const livros = await Livro.atualizar(req.body);
+  res.json(livros.rows)
+});
+
+module.exports = router;
+
+router.delete('/deletar/livros', async function(req, res, next) {
+  const livros = await Livro.deletar(req.body);
+  res.json(livros.rows)
+});
+
+module.exports = router;
+
+router.get('/livro/autor', async function(req, res, next) {
+  const livros = await Livro.livros(req.body);
+  res.json(livros.rows)
+});
+
+module.exports = router;
