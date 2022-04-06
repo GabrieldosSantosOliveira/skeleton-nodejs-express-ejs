@@ -20,6 +20,19 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/inserir', indexRouter);
+app.use('/deletar', indexRouter);
+app.use('/atualizar', indexRouter);
+app.use('/livros', indexRouter);
+app.use('/inserir/livros', indexRouter);
+app.use('/atualizar/livros', indexRouter);
+app.use('/deletar/livros', indexRouter);
+app.use('/livro/autor', indexRouter);
+
+app.use('/livros', indexRouter);
+
+app.use('/', indexRouter);
+
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
