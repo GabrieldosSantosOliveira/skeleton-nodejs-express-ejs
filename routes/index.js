@@ -69,7 +69,7 @@ router.delete('/deletar/livros', async function(req, res, next) {
 module.exports = router;
 
 router.get('/livro/autor', async function(req, res, next) {
-  const livros = await Livro.livros(req.body);
+  const livros = await Autor.livros(req.body);
   res.json(livros.rows)
 });
 
