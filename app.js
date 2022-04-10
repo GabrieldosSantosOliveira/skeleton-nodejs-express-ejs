@@ -8,6 +8,18 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+var cors = require('cors')
+var app = express()
+
+app.use(cors())
+ 
+
+app.use((req,res,next) => {
+  //console.log("Acessou o servidor")
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000")
+  app.use(cors());
+  next()
+})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
